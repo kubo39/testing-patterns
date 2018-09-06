@@ -1,0 +1,15 @@
+.dub
+docs.json
+__dummy.html
+docs/
+parameterizedtest.so
+parameterizedtest.dylib
+parameterizedtest.dll
+parameterizedtest.a
+parameterizedtest.lib
+parameterizedtest-test-*
+*.exe
+*.o
+*.obj
+*.lst
+parameterizedtest
