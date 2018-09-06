@@ -17,7 +17,7 @@ class Z
 
     void doSomething()
     {
-        // So something with X and Y.
+        // Do something with X and Y.
     }
 
 }
