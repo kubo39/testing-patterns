@@ -1,9 +1,9 @@
 {
 	"name": "vanilladi",
 	"authors": [
-		"kubo39"
+		"Hiroki Noda"
 	],
 	"description": "A minimal D application.",
 	"copyright": "Copyright © 2018, kubo39",
-	"license": "proprietary"
+	"license": "BSL-1.0"
 }
