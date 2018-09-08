@@ -20,7 +20,8 @@ class DiffTests
         foreach (line, testCase; testCases)
         {
             assert(testCase.expected == testCase.actual,
-                   format("failed at line:%d", line));
+                   format("failed at line %d: expected is %s, but actual %s",
+                          line, testCase.expected, testCase.actual));
         }
     }
 }
