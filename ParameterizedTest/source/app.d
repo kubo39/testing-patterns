@@ -2,26 +2,40 @@ import std.format;
 
 class DiffTests
 {
-    struct TestCase
+private:
+    struct TestCase(T)
     {
-        string expected;
-        string actual;
+        T expected;
+        T actual;
     }
 
+    static void assertEq(T)(uint line, TestCase!T testCase)
+    {
+        assert(testCase.expected == testCase.actual,
+               format("failed at line %d: expected is %s, but actual %s",
+                      line, testCase.expected, testCase.actual));
+    }
 
+public:
     static void testDiff()
     {
-        TestCase[uint] testCases = [
-            __LINE__: TestCase(
+        TestCase!string[uint] testCases1 = [
+            __LINE__: TestCase!string(
                 "I'm not changed.",
                 "I'm changed."
                 )];
 
-        foreach (line, testCase; testCases)
+        TestCase!int[uint] testCases2 = [
+            __LINE__: TestCase!int(2, 3)];
+
+        foreach (line, testCase; testCases1)
         {
-            assert(testCase.expected == testCase.actual,
-                   format("failed at line %d: expected is %s, but actual %s",
-                          line, testCase.expected, testCase.actual));
+            assertEq!string(line, testCase);
+        }
+
+        foreach (line, testCase; testCases2)
+        {
+            assertEq!int(line, testCase);
         }
     }
 }
